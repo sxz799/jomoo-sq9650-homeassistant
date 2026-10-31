@@ -1,0 +1,23 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect JOMOO smart toilet",
+        "description": "Enter the toilet BLE MAC address (scan with nRF Connect on a phone).",
+        "data": {
+          "address": "Bluetooth MAC address"
+        }
+      },
+      "confirm": {
+        "title": "JOMOO smart toilet discovered",
+        "description": "Add discovered device {name} ({address})?"
+      }
+    },
+    "error": {
+      "not_found": "Device not found in Bluetooth range. Check the HA adapter or Bluetooth proxy."
+    },
+    "abort": {
+      "already_configured": "Device already configured."
+    }
+  }
+}

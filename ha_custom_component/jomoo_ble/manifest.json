@@ -1,0 +1,22 @@
+{
+  "domain": "jomoo_ble",
+  "name": "JOMOO Smart Toilet (BLE)",
+  "codeowners": [],
+  "config_flow": true,
+  "dependencies": ["bluetooth"],
+  "documentation": "https://www.home-assistant.io/integrations/bluetooth",
+  "iot_class": "local_polling",
+  "issue_tracker": "https://www.jomoo.com.cn",
+  "requirements": [],
+  "version": "0.2.1",
+  "bluetooth": [
+    {
+      "service_uuid": "0000ffe0-0000-1000-8000-00805f9b34fb",
+      "connectable": true
+    },
+    {
+      "local_name": "JOMOO_SMART_*",
+      "connectable": true
+    }
+  ]
+}
