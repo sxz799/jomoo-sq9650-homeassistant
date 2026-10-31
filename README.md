@@ -4,7 +4,7 @@
 
 仓库同时保留了九牧微信小程序的反编译源码（`OUTPUT/`），仅作为协议参考，不参与运行。
 
-[![Open your Home Assistant instance and open a repository in the Marketplace.](https://my.home-assistant.io/badges/marketplace_repository.svg)](https://my.home-assistant.io/redirect/marketplace_repository/?owner=sxz799&repository=JOMOO-SQ9650-HOMEASSISTANT&category=integration)
+[![Open your Home Assistant instance and open a repository in the Marketplace.](https://my.home-assistant.io/badges/marketplace_repository.svg)](https://my.home-assistant.io/redirect/marketplace_repository/?owner=sxz799&repository=jomoo-sq9650-homeassistant&category=integration)
 [![Open your Home Assistant instance and start setting up a new integration.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=jomoo_ble)
 
 ***
@@ -28,7 +28,7 @@
 ```
 JMGatt_client/
 ├── custom_components/
-│   └── jomoo_ble/              # Home Assistant 自定义集成（v0.2.3）
+│   └── jomoo_ble/              # Home Assistant 自定义集成（v0.2.4）
 │       ├── __init__.py         # 集成入口 / 平台注册
 │       ├── manifest.json       # 集成元数据 + 蓝牙自动发现规则
 │       ├── config_flow.py      # 自动发现 / 手动填写 MAC
@@ -83,7 +83,7 @@ JMGatt_client/
 点击上方 Marketplace 徽章，或把本仓库作为自定义仓库添加：
 
 1. 打开 HACS → 集成 → 右上角 `⋮` → **自定义仓库**；
-2. 填入 `https://github.com/sxz799/JOMOO-SQ9650-HOMEASSISTANT`，类型选 **Integration**；
+2. 填入 `https://github.com/sxz799/jomoo-sq9650-homeassistant`，类型选 **Integration**；
 3. 安装后重启 Home Assistant。
 
 ### 手动安装
@@ -270,7 +270,7 @@ HA 与小程序不能同时占用同一条 BLE 链路。点 `bt02-断开连接`�
 
 ## 九、版本与发布
 
-当前版本：**0.2.3**。`manifest.json` 的 `version` 必须与 GitHub Release 的 tag 一致（如 `v0.2.3`）。
+当前版本：**0.2.4**。`manifest.json` 的 `version` 必须与 GitHub Release 的 tag 一致（如 `v0.2.4`）。
 
 - 每次 push / PR 会自动运行 `.github/workflows/validate.yaml`（HACS Action）与 `hassfest.yaml`，两项都必须通过。
 - 发布新版本：修改 `manifest.json` 的 `version` → 提交 → 打 tag `vX.Y.Z` → 在 GitHub 创建 Release（仅打 tag 不算 Release）。

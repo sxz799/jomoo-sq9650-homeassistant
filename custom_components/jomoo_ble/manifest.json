@@ -15,9 +15,9 @@
   "codeowners": ["@sxz799"],
   "config_flow": true,
   "dependencies": ["bluetooth"],
-  "documentation": "https://github.com/sxz799/JOMOO-SQ9650-HOMEASSISTANT",
+  "documentation": "https://github.com/sxz799/jomoo-sq9650-homeassistant",
   "iot_class": "local_polling",
-  "issue_tracker": "https://github.com/sxz799/JOMOO-SQ9650-HOMEASSISTANT/issues",
+  "issue_tracker": "https://github.com/sxz799/jomoo-sq9650-homeassistant/issues",
   "requirements": [],
-  "version": "0.2.3"
+  "version": "0.2.4"
 }
