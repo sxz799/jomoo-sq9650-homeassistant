@@ -4,6 +4,9 @@
 
 仓库同时保留了九牧微信小程序的反编译源码（`OUTPUT/`），仅作为协议参考，不参与运行。
 
+[![Open your Home Assistant instance and open a repository in the Marketplace.](https://my.home-assistant.io/badges/marketplace_repository.svg)](https://my.home-assistant.io/redirect/marketplace_repository/?owner=sxz799&repository=JOMOO-SQ9650-HOMEASSISTANT&category=integration)
+[![Open your Home Assistant instance and start setting up a new integration.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=jomoo_ble)
+
 ***
 
 ## 目录
@@ -16,7 +19,7 @@
 - [六、连接策略](#六连接策略)
 - [七、BLE 协议说明](#七ble-协议说明)
 - [八、常见问题](#八常见问题)
-- [九、版本与打包](#九版本与打包)
+- [九、版本与发布](#九版本与发布)
 
 ***
 
@@ -24,7 +27,7 @@
 
 ```
 JMGatt_client/
-├── ha_custom_component/
+├── custom_components/
 │   └── jomoo_ble/              # Home Assistant 自定义集成（v0.2.1）
 │       ├── __init__.py         # 集成入口 / 平台注册
 │       ├── manifest.json       # 集成元数据 + 蓝牙自动发现规则
@@ -40,10 +43,11 @@ JMGatt_client/
 │       ├── binary_sensor.py    # 二值传感器
 │       ├── sensor.py           # 工作状态文本传感器
 │       ├── brand/              # 集成图标（icon.png / icon@2x.png）
-│       ├── translations/       # 配置流程多语言
-│       ├── strings.json
-│       └── jomoo_ble.zip       # 可直接分发的集成压缩包
+│       └── translations/       # 配置流程多语言（en.json / zh-Hans.json）
 ├── OUTPUT/                     # 九牧微信小程序反编译源码（仅作协议参考）
+├── .github/workflows/          # hassfest 与 HACS Action 校验
+├── hacs.json                   # Marketplace / HACS 安装清单
+├── LICENSE                     # MIT
 └── README.md
 ```
 
@@ -74,16 +78,28 @@ JMGatt_client/
 
 ## 四、安装
 
-1. 把 `ha_custom_component/jomoo_ble` 整个目录复制到 HA 配置目录下的 `custom_components/jomoo_ble`：
+### 通过 Marketplace / HACS 安装（推荐）
+
+点击上方 Marketplace 徽章，或把本仓库作为自定义仓库添加：
+
+1. 打开 HACS → 集成 → 右上角 `⋮` → **自定义仓库**；
+2. 填入 `https://github.com/sxz799/JOMOO-SQ9650-HOMEASSISTANT`，类型选 **Integration**；
+3. 安装后重启 Home Assistant。
+
+### 手动安装
+
+1. 把 `custom_components/jomoo_ble` 整个目录复制到 HA 配置目录下的 `custom_components/jomoo_ble`：
    ```
    <HA 配置目录>/custom_components/jomoo_ble/
    ```
-   也可以直接解压 `jomoo_ble.zip` 到该位置（压缩包内已是 `jomoo_ble/` 目录结构）。
 2. 重启 Home Assistant（或“开发者工具 → 重新加载自定义集成”）。
-3. 添加集成：
+
+### 添加设备
+
+1. 添加集成：
    - **自动发现**：马桶广播出现后，HA 通知里会出现 “JOMOO Smart Toilet (BLE)”，点击确认即可；
    - **手动添加**：设置 → 设备与服务 → 添加集成 → 搜索 `JOMOO`，输入马桶蓝牙 MAC（可用 nRF Connect 扫描得到，格式 `AA:BB:CC:DD:EE:FF`）。
-4. 添加完成后，设备页会出现“控制”“传感器”等区块。默认**不会自动连接**，需要点 `bt01-连接` 才会占用蓝牙。
+2. 添加完成后，设备页会出现“控制”“传感器”等区块。默认**不会自动连接**，需要点 `bt01-连接` 才会占用蓝牙。
 
 ***
 
@@ -252,11 +268,15 @@ HA 与小程序不能同时占用同一条 BLE 链路。点 `bt02-断开连接`�
 
 ***
 
-## 九、版本与打包
+## 九、版本与发布
 
-当前版本：**0.2.1**（见 `manifest.json`）。
+当前版本：**0.2.1**。`manifest.json` 的 `version` 必须与 GitHub Release 的 tag 一致（如 `v0.2.1`）。
 
-打包 `jomoo_ble.zip` 时需包含：根目录下全部 `.py`、`.json` 文件，以及 `brand/`、`translations/` 两个目录；实体名或命令调整后务必重新打包，保证分发包与源码一致。
+- 每次 push / PR 会自动运行 `.github/workflows/validate.yaml`（HACS Action）与 `hassfest.yaml`，两项都必须通过。
+- 发布新版本：修改 `manifest.json` 的 `version` → 提交 → 打 tag `vX.Y.Z` → 在 GitHub 创建 Release（仅打 tag 不算 Release）。
+- 进入 Marketplace 目录（`hacs/default` 的 `integration` 列表）需要由仓库所有者提交 PR，并附上最新 Release 链接与两项 Action 通过记录；审核周期较长，期间用户仍可通过上方徽章链接手动添加仓库。
+
+许可证：[MIT](LICENSE)
 
 <br />
 

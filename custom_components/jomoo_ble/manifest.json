@@ -1,12 +1,13 @@
 {
   "domain": "jomoo_ble",
   "name": "JOMOO Smart Toilet (BLE)",
-  "codeowners": [],
+  "codeowners": ["@sxz799"],
   "config_flow": true,
+  "categories": ["appliances_cleaning"],
   "dependencies": ["bluetooth"],
-  "documentation": "https://www.home-assistant.io/integrations/bluetooth",
+  "documentation": "https://github.com/sxz799/JOMOO-SQ9650-HOMEASSISTANT",
   "iot_class": "local_polling",
-  "issue_tracker": "https://www.jomoo.com.cn",
+  "issue_tracker": "https://github.com/sxz799/JOMOO-SQ9650-HOMEASSISTANT/issues",
   "requirements": [],
   "version": "0.2.1",
   "bluetooth": [

@@ -5,3 +5,5 @@ bin
 obj
 build
 .devcontainer
+__pycache__/
+*.pyc
