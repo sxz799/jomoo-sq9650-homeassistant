@@ -30,7 +30,7 @@
 ```
 JMGatt_client/
 ├── custom_components/
-│   └── jomoo_sq9650_ble/              # Home Assistant 自定义集成（v0.2.6）
+│   └── jomoo_sq9650_ble/              # Home Assistant 自定义集成（v0.2.7）
 │       ├── __init__.py         # 集成入口 / 平台注册
 │       ├── manifest.json       # 集成元数据 + 蓝牙自动发现规则
 │       ├── config_flow.py      # 自动发现 / 手动填写 MAC
@@ -272,7 +272,7 @@ HA 与小程序不能同时占用同一条 BLE 链路。点 `bt02-断开连接`�
 
 ## 九、版本与发布
 
-当前版本：**0.2.6**。`manifest.json` 的 `version` 必须与 GitHub Release 的 tag 一致（如 `v0.2.6`）。
+当前版本：**0.2.7**。`manifest.json` 的 `version` 必须与 GitHub Release 的 tag 一致（如 `v0.2.7`）。
 
 - 每次 push / PR 会自动运行 `.github/workflows/validate.yaml`（HACS Action）与 `hassfest.yaml`，两项都必须通过。
 - 发布新版本：修改 `manifest.json` 的 `version` → 提交 → 打 tag `vX.Y.Z` → 在 GitHub 创建 Release（仅打 tag 不算 Release）。
