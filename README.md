@@ -30,7 +30,7 @@
 ```
 JMGatt_client/
 ├── custom_components/
-│   └── jomoo_sq9650_ble/              # Home Assistant 自定义集成（v0.2.5）
+│   └── jomoo_sq9650_ble/              # Home Assistant 自定义集成（v0.2.6）
 │       ├── __init__.py         # 集成入口 / 平台注册
 │       ├── manifest.json       # 集成元数据 + 蓝牙自动发现规则
 │       ├── config_flow.py      # 自动发现 / 手动填写 MAC
@@ -99,7 +99,7 @@ JMGatt_client/
 ### 添加设备
 
 1. 添加集成：
-   - **自动发现**：马桶广播出现后，HA 通知里会出现 “JOMOO Smart Toilet (BLE)”，点击确认即可；
+   - **自动发现**：马桶广播出现后，HA 通知里会出现 “JOMOO Smart Toilet (SQ9650)”，点击确认即可；
    - **手动添加**：设置 → 设备与服务 → 添加集成 → 搜索 `JOMOO`，输入马桶蓝牙 MAC（可用 nRF Connect 扫描得到，格式 `AA:BB:CC:DD:EE:FF`）。
 2. 添加完成后，设备页会出现“控制”“传感器”等区块。默认**不会自动连接**，需要点 `bt01-连接` 才会占用蓝牙。
 
@@ -249,7 +249,7 @@ FC <SUM> 00 FF 00 00 30 <18 字节状态数据> FC      # 共 26 字节
 
 **2. 操作时提示连接失败**
 
-先在集成页面启用调试日志：设置 → 设备与服务 → JOMOO Smart Toilet (BLE) → ⋮ → 启用调试日志，然后在“日志”页勾选 `debug` 级别。日志会打印广播来源（`hci*` 本机适配器 / 代理）、RSSI、连接失败异常类型，以及每一帧上报的原始十六进制与校验结果。
+先在集成页面启用调试日志：设置 → 设备与服务 → JOMOO Smart Toilet (SQ9650) → ⋮ → 启用调试日志，然后在“日志”页勾选 `debug` 级别。日志会打印广播来源（`hci*` 本机适配器 / 代理）、RSSI、连接失败异常类型，以及每一帧上报的原始十六进制与校验结果。
 
 **3. 手机小程序无法使用**
 
@@ -272,7 +272,7 @@ HA 与小程序不能同时占用同一条 BLE 链路。点 `bt02-断开连接`�
 
 ## 九、版本与发布
 
-当前版本：**0.2.5**。`manifest.json` 的 `version` 必须与 GitHub Release 的 tag 一致（如 `v0.2.5`）。
+当前版本：**0.2.6**。`manifest.json` 的 `version` 必须与 GitHub Release 的 tag 一致（如 `v0.2.6`）。
 
 - 每次 push / PR 会自动运行 `.github/workflows/validate.yaml`（HACS Action）与 `hassfest.yaml`，两项都必须通过。
 - 发布新版本：修改 `manifest.json` 的 `version` → 提交 → 打 tag `vX.Y.Z` → 在 GitHub 创建 Release（仅打 tag 不算 Release）。
