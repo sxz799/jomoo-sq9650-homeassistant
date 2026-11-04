@@ -4,8 +4,10 @@
 
 仓库同时保留了九牧微信小程序的反编译源码（`OUTPUT/`），仅作为协议参考，不参与运行。
 
-[![Open your Home Assistant instance and open a repository in the Marketplace.](https://my.home-assistant.io/badges/marketplace_repository.svg)](https://my.home-assistant.io/redirect/marketplace_repository/?owner=sxz799&repository=jomoo-sq9650-homeassistant&category=integration)
-[![Open your Home Assistant instance and start setting up a new integration.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=jomoo_ble)
+> **声明**：本项目为个人独立开发的第三方项目，**非九牧官方产品**，与九牧（JOMOO）品牌及其关联公司（官网：<https://m.jomoo.com.cn/>）不存在隶属、代理、合作、赞助或授权关系，亦未获得其认可或背书。「九牧」「JOMOO」等名称、商标及产品型号归各自权利人所有，本项目仅在描述兼容对象时作指示性使用，不构成商标许可。「Home Assistant」是 Nabu Casa, Inc. 的商标。仓库内 `OUTPUT/` 目录中的小程序反编译代码来自公开渠道，版权归原权利人，仅用于协议研究与互操作性分析，不随集成运行；如权利人提出异议，将立即移除。本集成通过非官方途径控制设备，可能导致设备异常、数据丢失或**保修失效**（以厂商条款为准）；涉及水、电的卫浴设备请确保安装与操作符合安全规范。使用即表示你已自行评估并承担全部风险，作者不承担任何直接或间接责任。
+
+[![Open your Home Assistant instance and open a repository in the Marketplace.](https://my.home-assistant.io/badges/marketplace_repository.svg)](https://my.home-assistant.io/redirect/marketplace_repository/?owner=sxz799&repository=jomoo_sq9650_ble&category=integration)
+[![Open your Home Assistant instance and start setting up a new integration.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=jomoo_sq9650_ble)
 
 ***
 
@@ -28,7 +30,7 @@
 ```
 JMGatt_client/
 ├── custom_components/
-│   └── jomoo_ble/              # Home Assistant 自定义集成（v0.2.4）
+│   └── jomoo_sq9650_ble/              # Home Assistant 自定义集成（v0.2.5）
 │       ├── __init__.py         # 集成入口 / 平台注册
 │       ├── manifest.json       # 集成元数据 + 蓝牙自动发现规则
 │       ├── config_flow.py      # 自动发现 / 手动填写 MAC
@@ -83,14 +85,14 @@ JMGatt_client/
 点击上方 Marketplace 徽章，或把本仓库作为自定义仓库添加：
 
 1. 打开 HACS → 集成 → 右上角 `⋮` → **自定义仓库**；
-2. 填入 `https://github.com/sxz799/jomoo-sq9650-homeassistant`，类型选 **Integration**；
+2. 填入 `https://github.com/sxz799/jomoo_sq9650_ble`，类型选 **Integration**；
 3. 安装后重启 Home Assistant。
 
 ### 手动安装
 
-1. 把 `custom_components/jomoo_ble` 整个目录复制到 HA 配置目录下的 `custom_components/jomoo_ble`：
+1. 把 `custom_components/jomoo_sq9650_ble` 整个目录复制到 HA 配置目录下的 `custom_components/jomoo_sq9650_ble`：
    ```
-   <HA 配置目录>/custom_components/jomoo_ble/
+   <HA 配置目录>/custom_components/jomoo_sq9650_ble/
    ```
 2. 重启 Home Assistant（或“开发者工具 → 重新加载自定义集成”）。
 
@@ -270,7 +272,7 @@ HA 与小程序不能同时占用同一条 BLE 链路。点 `bt02-断开连接`�
 
 ## 九、版本与发布
 
-当前版本：**0.2.4**。`manifest.json` 的 `version` 必须与 GitHub Release 的 tag 一致（如 `v0.2.4`）。
+当前版本：**0.2.5**。`manifest.json` 的 `version` 必须与 GitHub Release 的 tag 一致（如 `v0.2.5`）。
 
 - 每次 push / PR 会自动运行 `.github/workflows/validate.yaml`（HACS Action）与 `hassfest.yaml`，两项都必须通过。
 - 发布新版本：修改 `manifest.json` 的 `version` → 提交 → 打 tag `vX.Y.Z` → 在 GitHub 创建 Release（仅打 tag 不算 Release）。

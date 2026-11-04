@@ -1,10 +1,10 @@
-"""jomoo_ble 常量定义."""
+"""jomoo_sq9650_ble 常量定义."""
 
 from __future__ import annotations
 
 import logging
 
-DOMAIN = "jomoo_ble"
+DOMAIN = "jomoo_sq9650_ble"
 
 CONF_ADDRESS = "address"
 

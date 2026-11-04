@@ -1,4 +1,4 @@
-"""jomoo_ble 实体基类."""
+"""jomoo_sq9650_ble 实体基类."""
 
 from __future__ import annotations
 

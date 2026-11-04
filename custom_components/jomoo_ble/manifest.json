@@ -1,5 +1,5 @@
 {
-  "domain": "jomoo_ble",
+  "domain": "jomoo_sq9650_ble",
   "name": "JOMOO Smart Toilet (BLE)",
   "bluetooth": [
     {
@@ -15,9 +15,9 @@
   "codeowners": ["@sxz799"],
   "config_flow": true,
   "dependencies": ["bluetooth"],
-  "documentation": "https://github.com/sxz799/jomoo-sq9650-homeassistant",
+  "documentation": "https://github.com/sxz799/jomoo_sq9650_ble",
   "iot_class": "local_polling",
-  "issue_tracker": "https://github.com/sxz799/jomoo-sq9650-homeassistant/issues",
+  "issue_tracker": "https://github.com/sxz799/jomoo_sq9650_ble/issues",
   "requirements": [],
-  "version": "0.2.4"
+  "version": "0.2.5"
 }
